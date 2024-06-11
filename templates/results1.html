@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Forecast Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="table-users">
+    <div class="header">City Weather Forcast</div>
+    {% if result.error %}
+        <p>{{ result.error }}</p>
+    {% else %}
+        <h2>City: {{ result.city }}, {{ result.country }}</h2>
+        <ul>
+            {% for forecast in result.forecasts %}
+                <li>
+                    <strong>{{ forecast.date_time }}</strong><br>
+                    Temperature: {{ forecast.temperature }}°C<br>
+                    Pressure: {{ forecast.pressure }} hPa<br>
+                    Humidity: {{ forecast.humidity }}%<br>
+                    Weather: {{ forecast.weather_description }}<br>
+                    Wind Speed: {{ forecast.wind_speed }} km/h<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+bcrypt
+certifi
+click
+Flask
+ifaddr
+itsdangerous
+Jinja2
+MarkupSafe
+mendel-development-tool
+paramiko
+PyNaCl
+Werkzeug
+zeroconf
+
